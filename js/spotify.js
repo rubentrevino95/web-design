@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const APIController = (function() {
     const clietnID = '';
     const clientSecret = '';
@@ -18,6 +17,3 @@ const APIController = (function() {
         result data.access_token;
     }
 })();
-=======
-console.log('test');
->>>>>>> 1f02dc2bf6922e9769900258292466d50375cc5e

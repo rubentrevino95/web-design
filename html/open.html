@@ -11,9 +11,9 @@
     <script>
         const OpenAI = require('openai-api');
 
-        const OPENAI = process.env.OPENAI_API_KEY;
+        const OPENAI_API_KEY = process.env.OPENAI_API_KEY;
 
-        const openai = new OpenAI(OPENAI);
+        const openai = new OpenAI(OPENAI_API_KEY);
 
         (async () => {
             const gptResponse = await openai.complete({
