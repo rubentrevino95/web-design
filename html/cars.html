@@ -710,9 +710,23 @@
                         car.userData.hitZone2 = HitZone();
                     }
 
-                    return car;
+                        return car;
                     }
+                    
+                function getTruckFrontTexture() {
+                    const canvas = document.createElement("canvas");
+                    canvas.width = 32;
+                    canvas.height = 32;
+                    const context = canvas.getContext("2d");
 
+                    context.fillStyle = "#ffffff";
+                    context.fillRect(0, 0, 32, 32);
+
+                    context.fillStyle = "#666666";
+                    context.fillRect(0, 5, 32, 10);
+
+                    return new THREE.CanvasTexture(canvas);
+                    }
 
     }
     </script>
