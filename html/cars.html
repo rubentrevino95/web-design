@@ -808,6 +808,26 @@
                     return truck;
                 }
 
+                function HitZone() {
+                    const hitZone = new THREE.Mesh(
+                        new THREE.CylinderGeometry(20, 20, 60, 30),
+                        new THREE.MeshLambertMaterial({ color: 0xff0000 })
+                    );
+                    hitZone.position.z = 25;
+                    hitZone.rotation.x = Math.PI / 2;
+
+                    scene.add(hitZone);
+                    return hitZone;
+                }
+
+                function Wheel() {
+                    const wheel = new THREE.Mesh(wheelGeometry, wheelMaterial);
+                    wheel.position.z = 6;
+                    wheel.castShadow = false;
+                    wheel.receiveShadow = false;
+                    return wheel;
+                }
+
     }
     </script>
 </body>
