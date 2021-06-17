@@ -881,6 +881,21 @@
                     renderer.render(scene, camera);
                     lastTimestamp = timestamp;
                     }
+                    
+                function movePlayerCar(timeDelta) {
+                    const playerSpeed = getPlayerSpeed();
+                    playerAngleMoved -= playerSpeed * timeDelta;
+
+                    const totalPlayerAngle = playerAngleInitial + playerAngleMoved;
+
+                    const playerX = Math.cos(totalPlayerAngle) * trackRadius - arcCenterX;
+                    const playerY = Math.sin(totalPlayerAngle) * trackRadius;
+
+                    playerCar.position.x = playerX;
+                    playerCar.position.y = playerY;
+
+                    playerCar.rotation.z = totalPlayerAngle - Math.PI / 2;
+                    }
 
 
     }
