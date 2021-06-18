@@ -911,8 +911,21 @@
 
                     otherVehicles.push({ mesh, type, speed, clockwise, angle });
                     }
+                    
+                function getVehicleSpeed(type) {
+                    if (type == "car") {
+                        const minimumSpeed = 1;
+                        const maximumSpeed = 2;
+                        return minimumSpeed + Math.random() * (maximumSpeed - minimumSpeed);
+                    }
+                    if (type == "truck") {
+                        const minimumSpeed = 0.6;
+                        const maximumSpeed = 1.5;
+                        return minimumSpeed + Math.random() * (maximumSpeed - minimumSpeed);
+                    }
+                    }
 
-    }
+    }  
     </script>
 </body>
 </html>
