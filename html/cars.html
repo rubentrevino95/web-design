@@ -931,7 +931,47 @@
                         x: center.x + Math.cos(directionAngle) * distance,
                         y: center.y + Math.sin(directionAngle) * distance
                     };
-}
+                }
+
+                function hitDetection() {
+                    const playerHitZone1 = getHitZonePosition(
+                        playerCar.position,
+                        playerAngleInitial + playerAngleMoved,
+                        true,
+                        15
+                    );
+
+                    const playerHitZone2 = getHitZonePosition(
+                        playerCar.position,
+                        playerAngleInitial + playerAngleMoved,
+                        true,
+                        -15
+                    );
+
+                    if (config.showHitZones) {
+                        playerCar.userData.hitZone1.position.x = playerHitZone1.x;
+                        playerCar.userData.hitZone1.position.y = playerHitZone1.y;
+
+                        playerCar.userData.hitZone2.position.x = playerHitZone2.x;
+                        playerCar.userData.hitZone2.position.y = playerHitZone2.y;
+                    }
+
+                    const hit = otherVehicles.some((vehicle) => {
+                        if (vehicle.type == "car") {
+                        const vehicleHitZone1 = getHitZonePosition(
+                            vehicle.mesh.position,
+                            vehicle.angle,
+                            vehicle.clockwise,
+                            15
+                        );
+
+                        const vehicleHitZone2 = getHitZonePosition(
+                            vehicle.mesh.position,
+                            vehicle.angle,
+                            vehicle.clockwise,
+                            -15
+                        );
+
 
     }  
     </script>
