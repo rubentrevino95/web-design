@@ -1,0 +1,1 @@
+var OPENAI_API_KEY = 'sk-Jasez4MC7XQtLQf9EpTGFSpvFHwtJw99ZXI7QpgF';

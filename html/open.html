@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="js/keys.js"></script>  
+    <script>
+        const OpenAI = require('openai-api');
+
+        const KEY = process.env.OPENAI_API_KEY;
+
+        const openai = new OpenAI(KEY);
+
+        (async () => {
+            const gptResponse = await openai.complete({
+                engine: 'davinci',
+                prompt: 'this is a test',
+                maxTokens: 5,
+                temperature: 0.9,
+                topP: 1,
+                presencePenalty: 0,
+                frequencyPenalty: 0,
+                bestOf: 1,
+                n: 1,
+                stream: false,
+                stop: ['\n', "testing"]
+            });
+                    
+            console.log(gptResponse.data);
+        })();
+
+    // prog session
+    function countWords(sentence) {
+    const words = sentence.split(' '); // transform a sentence into an array of words
+    const wordCountObject = words.reduce((wordCounts, word) => {
+        if (typeof wordCounts[word] === 'undefined') {
+            // if the word is not yet present in our object, set it's value to 1
+            wordCounts[word] = 1;
+        } else {
+            // otherwise increment the existing count
+            wordCounts[word] += 1;
+        }
+        return wordCounts;
+    }, {}); // start with an empty object
+    return wordCountObject;
+    }
+
+    console.log(countWords('count many words are in this sentence'))
+
+    </script>
+    
+</body>
+</html>
